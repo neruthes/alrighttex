@@ -1,0 +1,56 @@
+\usepackage[textwidth=35em]{geometry}
+\usepackage{calc,fontspec,xeCJK,xeCJKfntef,xcolor,microtype,eso-pic}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+
+\frenchspacing
+\linespread{1.1}
+
+
+\setmainfont{TeX Gyre Termes}
+\setromanfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{JetBrains Mono NL}
+
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+
+
+
+
+
+
+
+\makeatletter
+\renewcommand{\maketitle}[0]{
+    \begingroup
+        \LARGE
+        \strut\@title\par
+        \vskip 7pt
+        \large
+        \strut\@author\par
+        \strut\@date\par
+    \endgroup%
+    \vskip 20pt%
+    \hrule%
+    \vskip 20pt
+}
+\newcommand{\maketitlecover}[0]{
+    \newgeometry{hmargin=43mm,bmargin=43mm,tmargin=65mm}
+    \begin{titlepage}
+        % \leavevmode\vskip 50pt
+        \huge\bfseries
+        \strut\@title\par
+        \vfill
+        \large\mdseries
+        \strut\@author\par
+        \strut\@date\par
+        % \vskip 50pt
+    \end{titlepage}
+    \restoregeometry
+}
+\makeatother
