@@ -1,5 +1,10 @@
-\usepackage[textwidth=35em]{geometry}
-\usepackage{calc,fontspec,xeCJK,xeCJKfntef,xcolor,microtype,eso-pic}
+\usepackage[textwidth=35em,vmargin=30mm]{geometry}
+\usepackage{calc,fontspec,xeCJK,xeCJKfntef,xcolor,microtype,eso-pic,titlesec,datetime2,tocloft}
+
+
+\definecolor{DocThemePrimary}{HTML}{006BFF}
+\definecolor{DocThemeSecondary}{HTML}{FF6500}
+
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{7pt}
@@ -7,17 +12,25 @@
 \frenchspacing
 \linespread{1.1}
 
-
-\setmainfont{TeX Gyre Termes}
-\setromanfont{TeX Gyre Termes}
+% Manage fonts
+\setmainfont{CMU Serif}
+\setromanfont{CMU Serif}
 \setsansfont{TeX Gyre Heros}
 \setmonofont{JetBrains Mono NL}
-
 \setCJKmainfont{Noto Serif CJK SC}
 \setCJKromanfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
 \setCJKmonofont{Noto Sans CJK SC}
-
+\newcommand{\neveruseseriffont}[0]{
+    \setmainfont{TeX Gyre Heros}
+    \setromanfont{TeX Gyre Heros}
+    \setCJKmainfont{Noto Sans CJK SC}
+    \setCJKromanfont{Noto Sans CJK SC}
+}
+\newcommand{\neverusesansfont}[0]{
+    \setsansfont{CMU Serif}
+    \setCJKsansfont{Noto Serif CJK SC}
+}
 
 
 
@@ -28,29 +41,52 @@
 \makeatletter
 \renewcommand{\maketitle}[0]{
     \begingroup
-        \LARGE
+        \sffamily\huge\bfseries
         \strut\@title\par
-        \vskip 7pt
-        \large
-        \strut\@author\par
+        \vskip 15pt
+        \large\mdseries
+        \strut\@author\hfill%
         \strut\@date\par
     \endgroup%
     \vskip 20pt%
     \hrule%
-    \vskip 20pt
+    \vskip 40pt
 }
 \newcommand{\maketitlecover}[0]{
     \newgeometry{hmargin=43mm,bmargin=43mm,tmargin=65mm}
     \begin{titlepage}
-        % \leavevmode\vskip 50pt
-        \huge\bfseries
+        {\color{DocThemePrimary}\rule{\linewidth}{4mm}}\par\vskip 30pt
+        \sffamily\huge\bfseries
         \strut\@title\par
         \vfill
         \large\mdseries
-        \strut\@author\par
+        \strut\@author\hfill%
         \strut\@date\par
         % \vskip 50pt
     \end{titlepage}
     \restoregeometry
 }
 \makeatother
+
+
+
+
+
+\newcommand{\AlrightTeXChapterEnder}[0]{{\color{DocThemePrimary}\rule{70mm}{4mm}}}
+\newcommand{\AlrightTeXSectionLeader}[0]{{\color{DocThemePrimary}\rule{12pt}{12pt}}\hskip 15pt}
+
+
+\titleformat{\chapter}[display]{\rmfamily\large\bfseries}%
+{\sffamily\MakeUppercase{\chaptertitlename}~\thechapter}{10pt}{\sffamily\huge}%
+[\vspace{0pt}\AlrightTeXChapterEnder]
+
+
+\titleformat{\section}[display]{\rmfamily\large\bfseries}%
+{}{0pt}{\sffamily\LARGE\makebox[72pt]{\AlrightTeXSectionLeader\thesection\hfill}}[]%
+
+
+
+
+\newcommand{\contentsnameplaintext}[0]{Contents}
+\newcommand{\contentsnamestyle}[0]{\huge\sffamily}
+\renewcommand{\contentsname}[0]{\contentsnamestyle\contentsnameplaintext}

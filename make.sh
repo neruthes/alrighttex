@@ -14,10 +14,13 @@ case $1 in
         cfoss2 _dist/examples/example-report.pdf
         cfoss2 _dist/examples/example-article.pdf
         ;;
+    examples | examples/ | e )
+        ntex examples/*.tex --2
+        ;;
     all | a)
         ./make.sh build
         if [[ "$USER" == neruthes ]]; then
-            ntex examples/*.tex
+            ./make.sh examples
             ./make.sh oss
         fi
         ;;
