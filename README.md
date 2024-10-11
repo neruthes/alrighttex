@@ -12,7 +12,7 @@ A generic LaTeX theme suite that looks alright.
 
 ## Installation
 
-### Get This Repository
+### Method 1: Get This Repository
 Run these commands in this repo.
 
 ```sh
@@ -21,13 +21,24 @@ cd alrighttex
 ./make.sh install
 ```
 
-### Use as Dependency
-Run this command in directory where documents are stored.
+Run this command in each repo root directory where documents are stored.
 
 ```sh
 alrighttex-installer.sh
 ```
 
+### Method 2: Get Files Only
+
+```sh
+mkdir -p .deps/alrighttex
+for i in article report; do
+    curl "https://raw.githubusercontent.com/neruthes/alrighttex/master/latexlib/$i.H.tex" -o ".deps/alrighttex/$i.H.tex"
+done
+```
+
+
+
+## Use as Dependency
 In document preamble:
 
 ```latex
