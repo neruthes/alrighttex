@@ -69,9 +69,12 @@
     \hrule%
     \vskip 40pt
 }
+\newlength{\titlecovertopextramargin}
+\setlength{\titlecovertopextramargin}{20mm}
 \newcommand{\maketitlecover}[0]{
-    \newgeometry{hmargin=43mm,bmargin=43mm,tmargin=65mm}
+    \newgeometry{hmargin=43mm,bmargin=43mm,tmargin=43mm}
     \begin{titlepage}
+        \leavevmode\vskip\titlecovertopextramargin
         {\color{DocThemePrimary}\rule{\linewidth}{4mm}}\par%
         \vskip 15pt%
         \HookCoverStart%
