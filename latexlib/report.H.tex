@@ -6,11 +6,26 @@
 \definecolor{DocThemeSecondary}{HTML}{FF6500}
 
 
+
+% Main frame layout hooks
+\providecommand{\HookCoverStart}[0]{}
+\providecommand{\HookCoverEnd}[0]{}
+\providecommand{\HookCoverTitleStart}[0]{}
+\providecommand{\HookCoverTitleEnd}[0]{}
+\providecommand{\HookArticleTitleStart}[0]{}
+\providecommand{\HookArticleTitleEnd}[0]{}
+
+
+
+
+
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{7pt}
 
 \frenchspacing
 \linespread{1.1}
+
+
 
 % Manage fonts
 \setmainfont{CMU Serif}
@@ -42,11 +57,13 @@
 \renewcommand{\maketitle}[0]{
     \begingroup
         \sffamily\huge\bfseries
+        \HookArticleTitleStart
         \strut\@title\par
         \vskip 15pt
         \large\mdseries
         \strut\@author\hfill%
         \strut\@date\par
+        \HookArticleTitleEnd
     \endgroup%
     \vskip 20pt%
     \hrule%
@@ -55,14 +72,17 @@
 \newcommand{\maketitlecover}[0]{
     \newgeometry{hmargin=43mm,bmargin=43mm,tmargin=65mm}
     \begin{titlepage}
-        {\color{DocThemePrimary}\rule{\linewidth}{4mm}}\par\vskip 30pt
-        \sffamily\huge\bfseries
-        \strut\@title\par
-        \vfill
-        \large\mdseries
+        {\color{DocThemePrimary}\rule{\linewidth}{4mm}}\par%
+        \vskip 15pt%
+        \HookCoverStart%
+        \vskip 15pt%
+        \sffamily\huge\bfseries%
+        \strut\HookCoverTitleStart\@title\HookCoverTitleEnd\par%
+        \vfill%
+        \large\mdseries%
         \strut\@author\hfill%
-        \strut\@date\par
-        % \vskip 50pt
+        \strut\@date\par%
+        \HookCoverEnd%
     \end{titlepage}
     \restoregeometry
 }
@@ -96,5 +116,6 @@
 \newcommand{\contentsnameplaintext}[0]{Contents}
 \newcommand{\contentsnamestyle}[0]{\huge\sffamily}
 \renewcommand{\contentsname}[0]{\contentsnamestyle\contentsnameplaintext}
+
 \renewcommand{\contentsnamestyle}[0]{\huge\sffamily}
 \renewcommand{\contentsname}[0]{\contentsnamestyle\contentsnameplaintext\par\vskip 20pt\AlrightTeXChapterEnder}
