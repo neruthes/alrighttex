@@ -15,6 +15,7 @@ case $1 in
         cfoss2 _dist/examples/example-article.pdf
         ;;
     examples | examples/ | e )
+        ./make.sh build
         ntex examples/*.tex --2
         ;;
     all | a)

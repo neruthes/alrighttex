@@ -75,14 +75,20 @@
 \newcommand{\AlrightTeXChapterEnder}[0]{{\color{DocThemePrimary}\rule{70mm}{4mm}}}
 \newcommand{\AlrightTeXSectionLeader}[0]{{\color{DocThemePrimary}\rule{12pt}{12pt}}\hskip 15pt}
 
-
-\titleformat{\chapter}[display]{\rmfamily\large\bfseries}%
+% Chapter
+\titleformat{\chapter}[display]{\sffamily\large\bfseries}%
 {\sffamily\MakeUppercase{\chaptertitlename}~\thechapter}{10pt}{\sffamily\huge}%
 [\vspace{0pt}\AlrightTeXChapterEnder]
 
+% Section
+\newlength{\sectionleaderwidth}
+\setlength{\sectionleaderwidth}{72pt}
+\titleformat{\section}[display]{\sffamily\large\bfseries}%
+{}{0pt}{\sffamily\bfseries\LARGE\makebox[\sectionleaderwidth]{\AlrightTeXSectionLeader\thesection\hfill}}[]%
 
-\titleformat{\section}[display]{\rmfamily\large\bfseries}%
-{}{0pt}{\sffamily\LARGE\makebox[72pt]{\AlrightTeXSectionLeader\thesection\hfill}}[]%
+% Subsection
+\titleformat{\subsection}[display]{\sffamily\large\bfseries}%
+{}{0pt}{\sffamily\bfseries\Large\makebox[0.75\sectionleaderwidth]{\thesubsection\hfill}}[]%
 
 
 
