@@ -15,6 +15,10 @@
 \providecommand{\HookArticleTitleStart}[0]{}
 \providecommand{\HookArticleTitleEnd}[0]{}
 
+% Some extra hooks
+\providecommand{\HookSetChapterFont}[0]{}
+\providecommand{\HookSetSectionFont}[0]{}
+\providecommand{\HookSetSubsectionFont}[0]{}
 
 
 
@@ -100,18 +104,20 @@
 
 % Chapter
 \titleformat{\chapter}[display]{\sffamily\large\bfseries}%
-{\sffamily\MakeUppercase{\chaptertitlename}~\thechapter}{10pt}{\sffamily\huge}%
+{\sffamily\MakeUppercase{\chaptertitlename}~\thechapter}{10pt}{\sffamily\huge\HookSetChapterFont}%
 [\vspace{0pt}\AlrightTeXChapterEnder]
 
 % Section
 \newlength{\sectionleaderwidth}
 \setlength{\sectionleaderwidth}{72pt}
+\newlength{\subsectionleaderwidth}
+\setlength{\subsectionleaderwidth}{72pt}
 \titleformat{\section}[display]{\sffamily\large\bfseries}%
-{}{0pt}{\sffamily\bfseries\LARGE\makebox[\sectionleaderwidth]{\AlrightTeXSectionLeader\thesection\hfill}}[]%
+{}{0pt}{\sffamily\bfseries\LARGE\HookSetSectionFont\makebox[\sectionleaderwidth]{\AlrightTeXSectionLeader\thesection\hfill}}[]%
 
 % Subsection
 \titleformat{\subsection}[display]{\sffamily\large\bfseries}%
-{}{0pt}{\sffamily\bfseries\Large\makebox[0.75\sectionleaderwidth]{\thesubsection\hfill}}[]%
+{}{0pt}{\sffamily\bfseries\Large\makebox[0.75\subsectionleaderwidth]{\thesubsection\hfill}}[]%
 
 
 
@@ -119,4 +125,6 @@
 \newcommand{\contentsnameplaintext}[0]{Contents}
 \newcommand{\contentsnamestyle}[0]{\huge\sffamily}
 \renewcommand{\contentsname}[0]{\contentsnamestyle\contentsnameplaintext}
+
+
 
