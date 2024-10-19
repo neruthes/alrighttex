@@ -102,6 +102,9 @@
 \newcommand{\AlrightTeXChapterEnder}[0]{{\color{DocThemePrimary}\rule{70mm}{4mm}}}
 \newcommand{\AlrightTeXSectionLeader}[0]{{\color{DocThemePrimary}\rule{12pt}{12pt}}\hskip 15pt}
 
+\newlength{\VspacePreSubsection}
+\setlength{\VspacePreSubsection}{0pt}
+
 % Chapter
 \titleformat{\chapter}[display]{\sffamily\large\bfseries}%
 {\sffamily\MakeUppercase{\chaptertitlename}~\thechapter}{10pt}{\sffamily\huge\HookSetChapterFont}%
@@ -116,7 +119,7 @@
 {}{0pt}{\sffamily\bfseries\LARGE\HookSetSectionFont\makebox[\sectionleaderwidth]{\AlrightTeXSectionLeader\thesection\hfill}}[]%
 
 % Subsection
-\titleformat{\subsection}[display]{\sffamily\large\bfseries}%
+\titleformat{\subsection}[display]{\vspace{\VspacePreSubsection}\sffamily\large\bfseries}%
 {}{0pt}{\sffamily\bfseries\Large\HookSetSubsectionFont\makebox[0.75\subsectionleaderwidth]{\thesubsection\hfill}}[]%
 
 
