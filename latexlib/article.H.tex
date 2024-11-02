@@ -102,6 +102,9 @@
 \newcommand{\AlrightTeXChapterEnder}[0]{{\color{DocThemePrimary}\rule{70mm}{4mm}}}
 \newcommand{\AlrightTeXSectionLeader}[0]{{\color{DocThemePrimary}\rule{12pt}{12pt}}\hskip 15pt}
 
+\newlength{\VspacePreSection}
+\setlength{\VspacePreSection}{0pt}
+
 \newlength{\VspacePreSubsection}
 \setlength{\VspacePreSubsection}{0pt}
 
@@ -115,7 +118,7 @@
 \setlength{\sectionleaderwidth}{72pt}
 \newlength{\subsectionleaderwidth}
 \setlength{\subsectionleaderwidth}{72pt}
-\titleformat{\section}[display]{\sffamily\large\bfseries}%
+\titleformat{\section}[display]{\vspace{\VspacePreSubsection}\sffamily\large\bfseries}%
 {}{0pt}{\sffamily\bfseries\LARGE\HookSetSectionFont\makebox[\sectionleaderwidth]{\AlrightTeXSectionLeader\thesection\hfill}}[]%
 
 % Subsection
