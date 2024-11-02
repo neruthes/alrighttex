@@ -11,8 +11,8 @@ case $1 in
         done
         ;;
     oss )
-        cfoss2 _dist/examples/example-report.pdf &
-        cfoss2 _dist/examples/example-article.pdf &
+        cfoss2 _dist/examples/example-report.pdf
+        cfoss2 _dist/examples/example-article.pdf
         ;;
     examples | examples/ | e )
         ./make.sh build
