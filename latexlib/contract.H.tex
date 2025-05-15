@@ -1,6 +1,11 @@
 \documentclass[a4paper,10pt]{article}
 \usepackage[textwidth=44em,tmargin=49mm,bmargin=25mm]{geometry}
-\usepackage{calc,fontspec,xeCJK,xeCJKfntef,xcolor,graphicx,eso-pic,titlesec,datetime2,tocloft,paralist,enumitem,tabularx,tabu,booktabs}
+\usepackage{calc,fontspec,xeCJK,xeCJKfntef,xcolor,graphicx,eso-pic,titlesec,datetime2,tocloft}
+\usepackage{paralist,enumitem,tabularx,tabu,booktabs,amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{indentfirst,sectsty}
+\allsectionsfont{\sffamily}
+
 
 \setmainfont{Times New Roman}
 \setromanfont{Times New Roman}
@@ -22,6 +27,16 @@
 \linespread{1.04}
 
 
+\newcommand{\implmaketitle}[3]{
+    \begin{center}%
+        \scalebox{1}[1.1]{%
+            \LARGE\bfseries\strut#1%
+        }%
+    \end{center}%
+    \vskip 10pt
+    \hrule\vskip 30pt
+}
+
 \makeatletter
 \newcommand{\toparea@content}[0]{}
 \newcommand{\toparea}[1]{%
@@ -30,11 +45,7 @@
 \AddToShipoutPictureBG{
     \put(\Gm@lmargin,270mm){\parbox{\textwidth}{\toparea@content}}
 }
-\renewcommand{\maketitle}[0]{
-    \begin{center}
-        \LARGE\bfseries\strut\@title
-    \end{center}
-    \vskip 10pt
-    \hrule\vskip 30pt
+\renewcommand{\maketitle}[0]{%
+    \implmaketitle{\@title}{\@author}{\@date}%
 }
 \makeatother
