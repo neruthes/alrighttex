@@ -7,8 +7,8 @@
 \allsectionsfont{\sffamily}
 
 
-\setmainfont{Times New Roman}
-\setromanfont{Times New Roman}
+\setmainfont{FreeSerif}
+\setromanfont{FreeSerif}
 \setsansfont{TeX Gyre Heros}
 % \setmonofont{JetBrains Mono NL}
 
@@ -28,11 +28,13 @@
 
 
 \newcommand{\implmaketitle}[3]{
-    \begin{center}%
-        \scalebox{1}[1.1]{%
-            \LARGE\bfseries\strut#1%
+    \scalebox{1}[1.12]{%
+        \parbox{\linewidth}{%
+            \begin{center}%
+                \Large\bfseries\strut#1%
+            \end{center}%
         }%
-    \end{center}%
+    }%
     \vskip 10pt
     \hrule\vskip 30pt
 }
@@ -40,10 +42,10 @@
 \makeatletter
 \newcommand{\toparea@content}[0]{}
 \newcommand{\toparea}[1]{%
-    \renewcommand{\toparea@content}[0]{#1}%
+    \renewcommand{\toparea@content}[0]{\sffamily#1}%
 }
 \AddToShipoutPictureBG{
-    \put(\Gm@lmargin,270mm){\parbox{\textwidth}{\toparea@content}}
+    \put(\Gm@lmargin,270mm){\parbox[t][35mm][t]{\textwidth}{\toparea@content}}
 }
 \renewcommand{\maketitle}[0]{%
     \implmaketitle{\@title}{\@author}{\@date}%
