@@ -44,8 +44,9 @@
 \newcommand{\toparea}[1]{%
     \renewcommand{\toparea@content}[0]{\sffamily#1}%
 }
+\providecommand{\topareamainstyle}[0]{\sffamily\normalsize}
 \AddToShipoutPictureBG{
-    \put(\Gm@lmargin,270mm){\parbox[t][35mm][t]{\textwidth}{\toparea@content}}
+    \put(\Gm@lmargin,270mm){\parbox[t][35mm][t]{\textwidth}{\topareamainstyle\toparea@content}}
 }
 \renewcommand{\maketitle}[0]{%
     \implmaketitle{\@title}{\@author}{\@date}%
